@@ -1,0 +1,111 @@
+\newcommand{\bb}[1] {\textbf{#1}}
+\newcommand{\ii}[1] {\textit{#1}}
+\newcommand{\co}[1] {\texttt{#1}}
+
+\usepackage{soul}
+\usepackage{tocloft}
+\usepackage{bm}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{plain}
+\usepackage{chngcntr}
+\counterwithin*{chapter}{part}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\usepackage[english]{babel} 
+\usepackage[utf8]{inputenc} 
+\usepackage{amsmath}
+\usepackage{fouriernc} 
+\usepackage[T1]{fontenc} 
+\raggedbottom
+\setlength{\parskip}{0.25\baselineskip}
+
+% -------------------------------------------------- 
+% CHAPTERS, SECTIONS, AND SUBSECTIONS --------------
+% -------------------------------------------------- 
+
+% section numbering in the margins
+\usepackage{titlesec}
+\newlength\sectionindent
+\setlength\sectionindent{54pt}
+
+\titleformat{\section}
+{\normalfont\Large}{\llap{\makebox[\sectionindent][l]{\thesection\hfill}}}{0pt}{}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\titleformat{\subsection}
+{\normalfont}{\llap{\makebox[\sectionindent][l]{\bfseries\thesubsection\hfill}}}{0pt}{}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% remove "Chapter XX" text
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+
+
+% -------------------------------------------------- 
+% LISTS --------------------------------------------
+% -------------------------------------------------- 
+
+% enable more configuration for lists
+\usepackage[shortlabels]{enumitem}
+\usepackage{enumerate}
+
+% configure bulleted list indentation
+\setlist[itemize]{label=$\bullet$, left=1pt, labelsep=11pt, itemsep=0pt, topsep=2pt}
+% configure lettered list 
+\setlist[enumerate]{label=\bfseries{\alph*)}, left=-3pt, labelsep=7pt, topsep=4pt, parsep=0pt, before={\vspace{0pt}}}
+
+
+
+% -------------------------------------------------- 
+% TABLE OF CONTENTS --------------------------------
+% -------------------------------------------------- 
+
+\cftsetindents{part}{0em}{3em}
+\cftsetindents{chapter}{0em}{3em}
+\cftsetindents{section}{3em}{3em}
+%\cftsetindents{subsection}{4em}{8em}
+
+
+% -------------------------------------------------- 
+% CODE BLOCKS --------------------------------------
+% -------------------------------------------------- 
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% configure code colors
+\definecolor{islamicgreen}{HTML}{00BF00}
+\definecolor{irisblue}{HTML}{00BFBF}
+\definecolor{deepmagenta}{HTML}{BF00BF}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+% configure code blocks
+\lstset{xleftmargin=4pt,xrightmargin=4pt}
+\lstset{aboveskip=8pt,belowskip=8pt}
+\lstdefinestyle{cpp} {
+	language=C++,
+	frame=single,
+	basicstyle=\ttfamily\small,
+	showstringspaces=false,
+	columns=flexible,
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	stringstyle=\color{codegreen}
+}
+\lstdefinestyle{txt} {
+	frame=single,
+	basicstyle=\ttfamily\small,
+	showstringspaces=false,
+	columns=flexible
+    commentstyle=\color{black},
+	keywordstyle=\color{black},
+    stringstyle=\color{black}
+}
+
+
+% -------------------------------------------------- 
+% IMAGES -------------------------------------------
+% -------------------------------------------------- 
+
+\usepackage{graphicx}
