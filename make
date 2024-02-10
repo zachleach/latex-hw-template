@@ -20,7 +20,3 @@ if [[ -e main.tex ]]; then
 
 	explorer.exe "$MAIN".pdf
 fi
-
-if [[ $# -eq 0 ]] && [[ $(git status | grep 'HEAD detached') == "" ]]; then
-	git add . && git commit -m "$(date "+%Y-%m-%d %H:%M:%S")" 
-fi

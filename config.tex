@@ -1,88 +1,58 @@
-\newcommand{\bb}[1] {\textbf{#1}}
-\newcommand{\ii}[1] {\textit{#1}}
-\newcommand{\co}[1] {\texttt{#1}}
+% latex article configuration, by @zachleach
+% 2024-02-10
 
-\usepackage{soul}
-\usepackage{tocloft}
-\usepackage{bm}
-\usepackage[hidelinks]{hyperref}
-\pagestyle{plain}
-\usepackage{chngcntr}
-\counterwithin*{chapter}{part}
-\renewcommand{\thechapter}{\arabic{chapter}}
-\usepackage[english]{babel} 
-\usepackage[utf8]{inputenc} 
-\usepackage{amsmath}
-\usepackage{fouriernc} 
-\usepackage[T1]{fontenc} 
-\raggedbottom
-\setlength{\parskip}{0.25\baselineskip}
+% set global font size
+\documentclass[12pt]{article}		 
 
-% -------------------------------------------------- 
-% CHAPTERS, SECTIONS, AND SUBSECTIONS --------------
-% -------------------------------------------------- 
+% configure page margins
+\usepackage[vmargin=84pt,hmargin=108pt,footskip=48pt]{geometry}
 
-% section numbering in the margins
-\usepackage{titlesec}
+% set font 
+\usepackage{fouriernc}				
+
+% set american font encoding and hyphenation
+\usepackage[T1]{fontenc}			
+\usepackage[USenglish]{babel}	
+
+% configure how far section numbering ("label") hangs in left margin
+\usepackage{titlesec}				
 \newlength\sectionindent
 \setlength\sectionindent{54pt}
 
-\titleformat{\section}
-{\normalfont\Large}{\llap{\makebox[\sectionindent][l]{\thesection\hfill}}}{0pt}{}
-\titlespacing*{\section}{0pt}{8pt}{4pt}
+% configure section		\titleformat{}{}{}{}{}{}
+\titleformat{\section}				
+{\normalfont\Large}{\llap{\makebox[\sectionindent][l]{\thesection\hfill}}}{0pt}{}	
+\titlespacing*{\section}{0pt}{0pt}{12pt}
 
-\titleformat{\subsection}
-{\normalfont}{\llap{\makebox[\sectionindent][l]{\bfseries\thesubsection\hfill}}}{0pt}{}
-\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+% configure subsection	\titleformat{}{}{}{}{}{}
+\titleformat{\subsection}			
+{\normalfont}{\llap{\makebox[\sectionindent][l]{\thesubsection\hfill}}}{0pt}{}
+\titlespacing*{\subsection}{0pt}{0pt}{12pt}
 
-% remove "Chapter XX" text
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}{}{20pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+% configue enumerated lists
+\usepackage[shortlabels]{enumitem}	
+\setlist[enumerate]{left=-3pt, labelsep=7pt, topsep=4pt, parsep=0pt, before={\vspace{0pt}}}
 
-
-
-% -------------------------------------------------- 
-% LISTS --------------------------------------------
-% -------------------------------------------------- 
-
-% enable more configuration for lists
-\usepackage[shortlabels]{enumitem}
-\usepackage{enumerate}
-
-% configure bulleted list indentation
+% configure bulleted lists
 \setlist[itemize]{label=$\bullet$, left=1pt, labelsep=11pt, itemsep=0pt, topsep=2pt}
-% configure lettered list 
-\setlist[enumerate]{label=\bfseries{\alph*)}, left=-3pt, labelsep=7pt, topsep=4pt, parsep=0pt, before={\vspace{0pt}}}
 
-
-
-% -------------------------------------------------- 
-% TABLE OF CONTENTS --------------------------------
-% -------------------------------------------------- 
-
-\cftsetindents{part}{0em}{3em}
-\cftsetindents{chapter}{0em}{3em}
-\cftsetindents{section}{3em}{3em}
-%\cftsetindents{subsection}{4em}{8em}
-
-
-% -------------------------------------------------- 
-% CODE BLOCKS --------------------------------------
-% -------------------------------------------------- 
-
-\usepackage{listings}
-\usepackage{xcolor}
-
-% configure code colors
+% enable syntax color definitions
+\usepackage{xcolor}					
 \definecolor{islamicgreen}{HTML}{00BF00}
 \definecolor{irisblue}{HTML}{00BFBF}
 \definecolor{deepmagenta}{HTML}{BF00BF}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 
-% configure code blocks
+% enable code blocks ("listings")
+\usepackage{listings}				
+
+% set codeblock border horizontal margins
 \lstset{xleftmargin=4pt,xrightmargin=4pt}
+
+% set codeblock vertical spacing
 \lstset{aboveskip=8pt,belowskip=8pt}
+
+% define C++ code style	 '\begin{lstlisting}[style=cpp]'
 \lstdefinestyle{cpp} {
 	language=C++,
 	frame=single,
@@ -93,6 +63,8 @@
 	keywordstyle=\color{blue},
 	stringstyle=\color{codegreen}
 }
+
+% define txt code style	 '\begin{lstlisting}[style=txt]'
 \lstdefinestyle{txt} {
 	frame=single,
 	basicstyle=\ttfamily\small,
@@ -103,11 +75,17 @@
     stringstyle=\color{black}
 }
 
-
-% -------------------------------------------------- 
-% IMAGES -------------------------------------------
-% -------------------------------------------------- 
-
+% enable images	
 \usepackage{graphicx}
 
+% enable math blocks '\begin{align}'
+\usepackage{amsmath}
+
+% configure math block ('align' environment) vertical spacing between lines
 \setlength{\jot}{12pt}
+
+% enable define underline, bold, italic, and code font (e.g., \ul, \bb, \ii, \co, respectively)
+\usepackage{soul}
+\newcommand{\bb}[1] {\textbf{#1}}
+\newcommand{\ii}[1] {\textit{#1}}
+\newcommand{\co}[1] {\texttt{#1}}
