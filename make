@@ -2,7 +2,7 @@
 
 # make
 # 2024.02.10, by @zachleach
-# compile and view main.tex 
+# compile and open tex file 
 
 MAIN="main"
 [[ ! -e ${MAIN}.tex ]] && exit 0
