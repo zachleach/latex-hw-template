@@ -1,22 +1,25 @@
 #!/bin/bash
-if [[ -e main.tex ]]; then 
-	MAIN="main"
 
-	temp1=$(mktemp)
-	temp2=$(mktemp)
+# make
+# 2024.02.10, by @zachleach
+# compile and view main.tex 
 
-	# run twice to generate TOC
-	pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp1"
-	if [[ $(grep 'Fatal error' "$temp1") != "" ]]; then
-		exit 1
-	fi
-	pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp2"
-	if [[ $(grep 'Fatal error' "$temp2") != "" ]]; then
-		exit 1
-	fi
+MAIN="main"
+[[ ! -e ${MAIN}.tex ]] && exit 0
+temp1=$(mktemp)
+temp2=$(mktemp)
 
-	rm *.aux
-	rm *.log *.out *.toc
-
-	explorer.exe "$MAIN".pdf
+# run twice to generate TOC
+pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp1"
+if [[ $(grep 'Fatal error' "$temp1") != "" ]]; then
+	exit 1
 fi
+pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp2"
+if [[ $(grep 'Fatal error' "$temp2") != "" ]]; then
+	exit 1
+fi
+
+rm *.aux
+rm *.log *.out *.toc
+
+explorer.exe "$MAIN".pdf
