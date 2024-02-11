@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# init
+# 2024.02.11, by @zachleach
+
+[[ ${1} == "" ]] && exit 0
+
+echo '\include{config.tex}' >> 'main.tex'
+echo '' >> 'main.tex'
+echo '\begin{document}' >> 'main.tex'
+echo '\input{hw02.tex}' >> 'main.tex'
+echo '\end{document}' >> 'main.tex'
+
+echo "% hw02.tex" >> "${1}.tex"
+echo "% $(date +"%Y.%m.%d"), by @zachleach" >> "${1}.tex"
+echo "" >> "${1}.tex"
+echo "" >> "${1}.tex"
+
+# rm -rf .git README.md init
+
