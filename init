@@ -14,7 +14,6 @@ echo '\end{document}' >> 'main.tex'
 echo "% hw02.tex" >> "${1}.tex"
 echo "% $(date +"%Y.%m.%d"), by @zachleach" >> "${1}.tex"
 echo "" >> "${1}.tex"
-echo "" >> "${1}.tex"
+echo "\\section{}" >> "${1}.tex"
 
 # rm -rf .git README.md init
-
