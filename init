@@ -8,10 +8,10 @@
 echo '\include{config.tex}' >> 'main.tex'
 echo '' >> 'main.tex'
 echo '\begin{document}' >> 'main.tex'
-echo '\input{hw02.tex}' >> 'main.tex'
+echo "\input{${1}.tex}" >> 'main.tex'
 echo '\end{document}' >> 'main.tex'
 
-echo "% hw02.tex" >> "${1}.tex"
+echo "% ${1}.tex" >> "${1}.tex"
 echo "% $(date +"%Y.%m.%d"), by @zachleach" >> "${1}.tex"
 echo "" >> "${1}.tex"
 echo "\\section{}" >> "${1}.tex"
