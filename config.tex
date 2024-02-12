@@ -22,12 +22,12 @@
 % configure \titleformat{\section}{}{}{}{}{}
 \titleformat{\section}				
 {\normalfont\Large}{\llap{\makebox[\sectionindent][l]{\thesection\hfill}}}{0pt}{}	
-\titlespacing*{\section}{0pt}{0pt}{12pt}
+\titlespacing*{\section}{0pt}{12pt}{12pt}
 
 % configure \titleformat{\subsection}{}{}{}{}{}
 \titleformat{\subsection}			
-{\normalfont}{\llap{\makebox[\sectionindent][l]{\thesubsection\hfill}}}{0pt}{}
-\titlespacing*{\subsection}{0pt}{0pt}{12pt}
+{\normalfont\large}{\llap{\makebox[\sectionindent][l]{\thesubsection\hfill}}}{0pt}{}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
 
 % configue enumerated lists
 \usepackage[shortlabels]{enumitem}	
@@ -89,3 +89,6 @@
 \newcommand{\bb}[1] {\textbf{#1}}
 \newcommand{\ii}[1] {\textit{#1}}
 \newcommand{\co}[1] {\texttt{#1}}
+
+% enable hyperlinks
+\usepackage{hyperref}
