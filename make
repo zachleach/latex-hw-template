@@ -19,7 +19,7 @@ if [[ $(grep 'Fatal error' "$temp2") != "" ]]; then
 	exit 1
 fi
 
-rm *.aux *.log
+rm *.aux *.log *.out
 explorer.exe "$MAIN".pdf
 
 [[ $(git status | grep 'HEAD detached') != "" ]] && exit 0
