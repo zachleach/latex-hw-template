@@ -21,3 +21,6 @@ fi
 
 rm *.aux *.log
 explorer.exe "$MAIN".pdf
+
+[[ $(git status | grep 'HEAD detached') != "" ]] && exit 0
+git add . && git commit -m "$(date "+%Y-%m-%d %H:%M:%S")" 
