@@ -5,22 +5,18 @@
 # compile and open tex file 
 
 MAIN="main"
-[[ ! -e ${MAIN}.tex ]] && exit 0
+[[ ! -e ${MAIN}.tex ]] && exit 1
 temp1=$(mktemp)
 temp2=$(mktemp)
 
 # run twice to generate TOC
 pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp1"
-if [[ $(grep 'Fatal error' "$temp1") != "" ]]; then
-	exit 1
-fi
+[[ $(grep 'Fatal error' "$temp1") != "" ]] && exit 1
 pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp2"
-if [[ $(grep 'Fatal error' "$temp2") != "" ]]; then
-	exit 1
-fi
+[[ $(grep 'Fatal error' "$temp2") != "" ]] && exit 1
 
 rm *.aux *.log *.out
 explorer.exe "$MAIN".pdf
 
-[[ $(git status | grep 'HEAD detached') != "" ]] && exit 0
+[[ $(git status | grep 'HEAD detached') != "" ]] && exit 1
 git add . && git commit -m "$(date "+%Y-%m-%d %H:%M:%S")" 
