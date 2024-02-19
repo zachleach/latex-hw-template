@@ -1,11 +1,11 @@
 % latex article configuration, by @zachleach
-% 2024-02-19
+% 2024-02-10
 
 % set global font size
-\documentclass[12pt]{article}		 
+\documentclass[twocolumn, 10pt]{article}		 
 
 % configure page margins
-\usepackage[vmargin=84pt,hmargin=108pt,footskip=48pt]{geometry}
+\usepackage[vmargin=48pt,hmargin=48pt,footskip=28pt]{geometry}
 
 % set font
 %\usepackage{fouriernc}		% fourier math (new century schoolbook)
@@ -20,15 +20,16 @@
 \newlength\sectionindent
 \setlength\sectionindent{54pt}
 
+
 % configure \titleformat{\section}{}{}{}{}{}
 \titleformat{\section}				
-{\normalfont\Large\bfseries}{\llap{\makebox[\sectionindent][l]{\thesection\hfill}}}{0pt}{}	
-\titlespacing*{\section}{0pt}{12pt}{12pt}
+{\normalfont\Large\bfseries}{\thesection}{24pt}{}		% 24pt lines up with subsection below
+\titlespacing*{\section}{0pt}{16pt}{16pt}
 
 % configure \titleformat{\subsection}{}{}{}{}{}
 \titleformat{\subsection}			
-{\normalfont\large\bfseries}{\llap{\makebox[\sectionindent][l]{\thesubsection\hfill}}}{0pt}{}
-\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+{\normalfont\large\bfseries}{\thesubsection}{15pt}{}	% see above
+\titlespacing*{\subsection}{0pt}{16pt}{16pt}
 
 % configue enumerated lists
 \usepackage[shortlabels]{enumitem}	
@@ -98,3 +99,6 @@
 
 % enable hyperlinks
 \usepackage{hyperref}
+
+% set the length between columns
+\setlength{\columnsep}{24pt}
