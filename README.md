@@ -8,7 +8,7 @@ function clone_latex() {
 	echo "% body.tex" > "body.tex"
 	echo "% $(date +"%Y.%m.%d"), by @zachleach" >> "body.tex"
 	echo "" >> "body.tex"
-	echo "\section{}" >> "body.tex"
+	echo "" >> "body.tex"
 
 	vi +4 "body.tex"
 }
