@@ -14,4 +14,4 @@ function clone_latex() {
 }
 ```
 
-On unix systems, if you've installed all the LaTeX stuff you should be able to run `./make` to build the PDF from source. 
+This is highly tailored to my personal use (probably won't work on your machine).
