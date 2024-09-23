@@ -1,0 +1,117 @@
+% latex article configuration, by @zachleach
+% 2024-02-10
+
+% set global font size
+\documentclass[twocolumn, 10pt]{article}		 
+
+% configure page margins
+\usepackage[vmargin=48pt, hmargin=48pt, footskip=28pt]{geometry}
+
+% set font
+%\usepackage{fouriernc}		% fourier math (new century schoolbook)
+\usepackage{concmath}		% knuth font
+
+% set american font encoding and hyphenation
+\usepackage[T1]{fontenc}			
+\usepackage[USenglish]{babel}	
+
+% configure how far section numbering ("label") hangs in left margin
+\usepackage{titlesec}				
+\newlength\sectionindent
+\setlength\sectionindent{28pt}
+\newlength\subsectionindent
+\setlength\subsectionindent{32pt}
+
+%\titleformat{\section}				
+%{\normalfont\Large\bfseries}{\llap{\makebox[\sectionindent][l]{\thesection\hfill}}}{0pt}{}	
+%\titlespacing*{\section}{0pt}{12pt}{12pt}
+%
+%\titleformat{\subsection}			
+%{\normalfont\bfseries}{\llap{\makebox[\subsectionindent][l]{\thesubsection\hfill}}}{0pt}{}
+%\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+
+
+% configure \titleformat{\section}{}{}{}{}{}
+\titleformat{\section}				
+{\normalfont\Large\bfseries}{\thesection}{24pt}{}		% 24pt lines up with subsection below
+\titlespacing*{\section}{0pt}{16pt}{16pt}
+
+% configure \titleformat{\subsection}{}{}{}{}{}
+\titleformat{\subsection}			
+{\normalfont\large\bfseries}{\thesubsection}{15pt}{}	% see above
+\titlespacing*{\subsection}{0pt}{16pt}{16pt}
+
+% configue enumerated lists
+\usepackage[shortlabels]{enumitem}	
+\setlist[enumerate]{left=-4pt, labelsep=7pt, topsep=4pt, parsep=0pt, before={\vspace{0pt}}}
+
+% configure bulleted lists
+\setlist[itemize]{label=$\bullet$, left=1pt, labelsep=11pt, itemsep=0pt, topsep=2pt}
+
+% enable syntax color definitions
+\usepackage{xcolor}					
+\definecolor{islamicgreen}{HTML}{00BF00}
+\definecolor{irisblue}{HTML}{00BFBF}
+\definecolor{deepmagenta}{HTML}{BF00BF}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+% enable code blocks ("listings")
+\usepackage{listings}				
+
+\newcommand{\codefont}[1]{\texttt{\fontfamily{fi4}\selectfont#1}}
+
+% set codeblock border horizontal margins
+\lstset{xleftmargin=4pt,xrightmargin=4pt}
+
+% set codeblock vertical spacing
+\lstset{aboveskip=8pt,belowskip=8pt}
+
+% define C++ code style	 '\begin{lstlisting}[style=cpp]'
+\lstdefinestyle{cpp} {
+	language=C++,
+	frame=single,
+	basicstyle=\ttfamily\footnotesize,
+	showstringspaces=false,
+	columns=flexible,
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	stringstyle=\color{codegreen}
+}
+
+% define txt code style	 '\begin{lstlisting}[style=txt]'
+\lstdefinestyle{txt} {
+	language=C++,
+	frame=single,
+	basicstyle=\ttfamily\footnotesize,
+	showstringspaces=false,
+	columns=flexible,
+	breaklines=true,
+	breakatwhitespace=true,
+    commentstyle=\color{codegreen},
+	keywordstyle=\color{black},
+    stringstyle=\color{black}
+}
+
+% enable image insertion '\includegraphics[width=\textwidth]{image.png}'
+\usepackage{graphicx}
+
+% enable math blocks '\begin{align}'
+\usepackage{amsmath}
+
+% configure math block ('align' environment) vertical spacing between lines
+\setlength{\jot}{12pt}
+\addtolength{\belowdisplayshortskip}{16pt}
+
+
+
+% enable underline, define underline, bold, italic, and code font (e.g., \ul, \bb, \ii, \co, respectively)
+\usepackage{soul}
+\newcommand{\bb}[1] {\textbf{#1}}
+\newcommand{\ii}[1] {\textit{#1}}
+\newcommand{\co}[1] {\texttt{#1}}
+
+% enable hyperlinks
+\usepackage{hyperref}
+
+% set the length between columns
+\setlength{\columnsep}{48pt}
