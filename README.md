@@ -13,3 +13,5 @@ function clone_latex() {
 	vi +4 "body.tex"
 }
 ```
+
+On unix systems, if you've installed all the LaTeX stuff you should be able to run `./make` to build the PDF from source. 
