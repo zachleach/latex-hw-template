@@ -18,5 +18,5 @@ pdflatex "$MAIN".tex "$MAIN".pdf | tee "$temp2"
 rm *.aux *.log *.out
 explorer.exe "$MAIN".pdf
 
-[[ $(git status | grep 'HEAD detached') != "" ]] && exit 1
-git add . && git commit -m "$(date "+%Y-%m-%d %H:%M:%S")" 
+#[[ $(git status | grep 'HEAD detached') != "" ]] && exit 1
+#git add . && git commit -m "$(date "+%Y-%m-%d %H:%M:%S")" 
